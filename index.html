@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Athiyya Nur Andini | Portfolio</title>
+
+    <style>
+
+        /* =========================
+           GOOGLE FONT
+        ========================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+        /* =========================
+           VARIABLE WARNA
+        ========================= */
+
+        :root {
+            --bg: #f5f7fb;
+            --card: rgba(255,255,255,0.75);
+            --text: #172033;
+            --text-soft: #687386;
+            --primary: #5b5ff0;
+            --secondary: #8b5cf6;
+            --border: rgba(0,0,0,0.08);
+            --shadow: 0 15px 40px rgba(40,50,90,0.10);
+            --nav: rgba(255,255,255,0.75);
+        }
+
+        body.dark {
+            --bg: #0c1020;
+            --card: rgba(24,29,50,0.78);
+            --text: #f5f7ff;
+            --text-soft: #aeb6cb;
+            --primary: #818cf8;
+            --secondary: #a78bfa;
+            --border: rgba(255,255,255,0.08);
+            --shadow: 0 15px 40px rgba(0,0,0,0.35);
+            --nav: rgba(12,16,32,0.78);
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.4s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            opacity: 0.12;
+            border-radius: 50%;
+            filter: blur(90px);
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            opacity: 0.12;
+            border-radius: 50%;
+            filter: blur(90px);
+            bottom: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            background: var(--nav);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-soft);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-btn {
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            background: var(--card);
+            color: var(--text);
+
+            box-shadow: var(--shadow);
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .theme-btn:hover {
+            transform: rotate(20deg) scale(1.05);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1150px;
+            margin: auto;
+            padding: 140px 25px 80px;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-text {
+            animation: slideLeft 1s ease;
+        }
+
+        .small-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            color: var(--text-soft);
+            line-height: 1.8;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* FOTO PROFIL */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: slideRight 1s ease;
+        }
+
+        .profile-box {
+            width: 310px;
+            height: 390px;
+            border-radius: 35px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
+            padding: 12px;
+
+            transform: rotate(3deg);
+            transition: 0.4s;
+        }
+
+        .profile-box:hover {
+            transform: rotate(0deg) translateY(-10px);
+        }
+
+        .profile-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 27px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--text-soft);
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(15px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            line-height: 1.8;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item span:first-child {
+            color: var(--text-soft);
+        }
+
+        .info-item span:last-child {
+            font-weight: 600;
+            text-align: right;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: rgba(91,95,240,0.12);
+            font-size: 28px;
+        }
+
+        .skill-card p {
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .experience-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            opacity: 0.08;
+            border-radius: 50%;
+            right: -30px;
+            top: -30px;
+        }
+
+        .experience-date {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experience-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+
+        /* =========================
+           HOBBY
+        ========================= */
+
+        .hobby-box {
+            text-align: center;
+            padding: 50px 30px;
+        }
+
+        .hobby-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hobby-box h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENT
+        ========================= */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 25px;
+        }
+
+        .achievement-card {
+            cursor: pointer;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .achievement-card:hover .achievement-image {
+            transform: scale(1.05);
+        }
+
+        .achievement-content {
+            padding: 25px;
+        }
+
+        .achievement-number {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .achievement-content h3 {
+            margin: 8px 0;
+        }
+
+        .achievement-content p {
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        .click-text {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            text-align: center;
+            padding: 55px 25px;
+        }
+
+        .contact-links {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-4px);
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MODAL ACHIEVEMENT
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,0.75);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 700px;
+            width: 100%;
+
+            background: var(--bg);
+            border-radius: 25px;
+            overflow: hidden;
+
+            animation: zoomIn 0.3s ease;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 12px;
+        }
+
+        .modal-body p {
+            color: var(--text-soft);
+            line-height: 1.8;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+
+            width: 40px;
+            height: 40px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.6);
+            color: white;
+
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .profile-box {
+                width: 250px;
+                height: 320px;
+            }
+
+            .about-grid,
+            .experience,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="nav-container">
+
+        <div class="logo">
+            A<span>N.</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#achievement">Achievement</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <!-- DARK MODE -->
+
+        <button class="theme-btn" id="themeBtn">
+            🌙
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-text">
+
+        <div class="small-title">
+            👋 Hello, I'm
+        </div>
+
+        <h1>
+            Athiyya<br>
+            <span>Nur Andini.</span>
+        </h1>
+
+        <p>
+            Mahasiswa Pendidikan Teknologi Informasi yang
+            tertarik pada dunia teknologi, kreativitas,
+            bisnis, dan menulis.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="btn btn-primary">
+                Kenal Saya
+            </a>
+
+            <a href="#achievement" class="btn btn-outline">
+                Lihat Pencapaian
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="profile-box">
+
+            <!-- GANTI DENGAN FOTO KAMU -->
+
+            <img
+                src="assets/akusndr.jpeg"
+                alt="Foto Athiyya Nur Andini"
+            >
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     ABOUT ME
+========================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <small>ABOUT ME</small>
+
+        <h2>Tentang Saya</h2>
+
+        <p>
+            Sedikit cerita tentang diri saya.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <!-- IDENTITAS -->
+
+        <div class="card">
+
+            <h3>👩‍💻 Identitas</h3>
+
+            <div class="info-list">
+
+                <div class="info-item">
+                    <span>Nama</span>
+                    <span>Athiyya Nur Andini</span>
+                </div>
+
+                <div class="info-item">
+                    <span>NIM</span>
+                    <span>26050974095</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Program Studi</span>
+                    <span>Pendidikan Teknologi Informasi</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Fakultas</span>
+                    <span>Fakultas Teknik</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Universitas</span>
+                    <span>Universitas Negeri Surabaya</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Asal</span>
+                    <span>Bojonegoro</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESKRIPSI -->
+
+        <div class="card">
+
+            <h3>✨ Who I Am</h3>
+
+            <p>
+
+                Saya adalah mahasiswa Pendidikan Teknologi Informasi
+                yang memiliki ketertarikan pada teknologi, kreativitas,
+                komunikasi, dan dunia bisnis.
+
+                <br><br>
+
+                Saya percaya bahwa teknologi tidak hanya tentang
+                coding, tetapi juga tentang bagaimana teknologi dapat
+                digunakan untuk menciptakan sesuatu yang bermanfaat
+                dan menarik.
+
+                <br><br>
+
+                Saya juga senang mencoba hal-hal baru, mengembangkan
+                kemampuan, serta belajar dari pengalaman.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHAT I CAN DO
+========================= -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <small>WHAT I CAN DO</small>
+
+        <h2>Kemampuan Saya</h2>
+
+        <p>
+            Beberapa kemampuan dan hal yang sedang saya kembangkan.
+        </p>
+
+    </div>
+
+
+    <div class="skills">
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                💻
+            </div>
+
+            <h3>Web Development</h3>
+
+            <p>
+                HTML, CSS, JavaScript dan pembuatan
+                website sederhana.
+            </p>
+
+        </div>
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                🎨
+            </div>
+
+            <h3>Creative Design</h3>
+
+            <p>
+                Membuat desain sederhana untuk
+                presentasi, poster dan kebutuhan digital.
+            </p>
+
+        </div>
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                📊
+            </div>
+
+            <h3>Business Plan</h3>
+
+            <p>
+                Memahami penyusunan ide bisnis,
+                perencanaan dan presentasi bisnis.
+            </p>
+
+        </div>
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                ✍️
+            </div>
+
+            <h3>Writing</h3>
+
+            <p>
+                Menulis cerita, terutama cerita
+                fabel dan karya kreatif.
+            </p>
+
+        </div>
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                🗣️
+            </div>
+
+            <h3>Communication</h3>
+
+            <p>
+                Presentasi, menyampaikan ide dan
+                bekerja sama dalam tim.
+            </p>
+
+        </div>
+
+
+        <div class="card skill-card">
+
+            <div class="skill-icon">
+                🧠
+            </div>
+
+            <h3>Problem Solving</h3>
+
+            <p>
+                Berusaha menemukan solusi kreatif
+                untuk berbagai permasalahan.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section id="experience">
+
+    <div class="section-title">
+
+        <small>EXPERIENCE</small>
+
+        <h2>Pengalaman</h2>
+
+        <p>
+            Pengalaman yang membantu saya berkembang.
+        </p>
+
+    </div>
+
+
+    <div class="experience">
+
+
+        <!-- PKL -->
+
+        <div class="card experience-card">
+
+            <div class="experience-date">
+                PENGALAMAN PKL
+            </div>
+
+            <h3>
+                🏢 Dinas Komunikasi dan Informatika
+                Bojonegoro
+            </h3>
+
+            <p>
+
+                Saya pernah melaksanakan Praktik Kerja Lapangan
+                (PKL) di Kominfo Bojonegoro.
+
+                <br><br>
+
+                Pengalaman ini memberikan kesempatan bagi saya
+                untuk mengenal lingkungan kerja secara langsung,
+                belajar mengenai dunia teknologi dan komunikasi,
+                serta meningkatkan kemampuan dalam bekerja sama,
+                berkomunikasi dan menyelesaikan tugas.
+
+            </p>
+
+        </div>
+
+
+        <!-- BUSINESS -->
+
+        <div class="card experience-card">
+
+            <div class="experience-date">
+                BUSINESS PLAN
+            </div>
+
+            <h3>
+                💡 Kompetisi Business Plan
+            </h3>
+
+            <p>
+
+                Saya memiliki pengalaman mengikuti kompetisi
+                Business Plan yang memberikan banyak pengalaman
+                dalam mengembangkan ide, menyusun konsep bisnis,
+                melakukan presentasi dan bekerja dalam tim.
+
+                <br><br>
+
+                Pengalaman tersebut menjadi salah satu proses
+                penting dalam mengembangkan kemampuan kreativitas,
+                komunikasi dan problem solving.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HOBBY
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>MY HOBBY</small>
+
+        <h2>Hal yang Saya Sukai</h2>
+
+    </div>
+
+
+    <div class="card hobby-box">
+
+        <div class="hobby-icon">
+            ✍️📖
+        </div>
+
+        <h3>Menulis</h3>
+
+        <p>
+
+            Salah satu hobi saya adalah menulis,
+            terutama menulis cerita fabel.
+
+            <br><br>
+
+            Bagi saya, menulis adalah cara untuk
+            menuangkan ide, imajinasi dan pesan
+            melalui sebuah cerita.
+
+            Saya menikmati proses menciptakan karakter,
+            membangun alur cerita dan memberikan
+            pesan moral kepada pembaca.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ACHIEVEMENT
+========================= -->
+
+<section id="achievement">
+
+    <div class="section-title">
+
+        <small>ACHIEVEMENT</small>
+
+        <h2>Pencapaian Saya</h2>
+
+        <p>
+            Beberapa pencapaian yang menjadi bagian
+            dari perjalanan saya.
+        </p>
+
+    </div>
+
+
+    <div class="achievement-grid">
+
+
+        <!-- ACHIEVEMENT 1 -->
+
+        <div
+            class="card achievement-card"
+            onclick="openModal(
+                'special',
+                'Special Awards 1 - Business Plan 2024',
+                'Saya berhasil meraih Special Awards 1 dalam kompetisi Business Plan 2024 SMA/SMK se-Jawa Timur tingkat nasional.'
+            )"
+        >
+
+            <img
+                src="assets/Sertif Special Award 1 - Copy.png"
+                class="achievement-image"
+                alt="Special Awards 1"
+            >
+
+            <div class="achievement-content">
+
+                <div class="achievement-number">
+                    ACHIEVEMENT 01
+                </div>
+
+                <h3>
+                    🏆 Special Awards 1
+                </h3>
+
+                <p>
+
+                    Business Plan 2024
+                    SMA/SMK se-Jawa Timur
+                    tingkat nasional.
+
+                </p>
+
+                <span class="click-text">
+                    Klik untuk melihat detail →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ACHIEVEMENT 2 -->
+
+        <div
+            class="card achievement-card"
+            onclick="openModal(
+                'finalist',
+                '20 Finalis Business Plan',
+                'Saya berhasil menjadi salah satu dari 20 finalis dalam lomba Business Plan se-Jawa Bali tingkat nasional.'
+            )"
+        >
+
+            <img
+                src="assets/sertif1.png"
+                class="achievement-image"
+                alt="20 Finalis Business Plan"
+            >
+
+            <div class="achievement-content">
+
+                <div class="achievement-number">
+                    ACHIEVEMENT 02
+                </div>
+
+                <h3>
+                    ⭐ 20 Finalis Business Plan
+                </h3>
+
+                <p>
+
+                    Lomba Business Plan
+                    se-Jawa Bali tingkat nasional.
+
+                </p>
+
+                <span class="click-text">
+                    Klik untuk melihat detail →
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="card contact-box">
+
+        <div class="section-title">
+
+            <small>CONTACT</small>
+
+            <h2>Mari Terhubung</h2>
+
+            <p>
+
+                Jika ingin berdiskusi, berkolaborasi,
+                atau sekadar menyapa, silakan hubungi saya.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+            <!-- GANTI EMAIL -->
+
+            <a
+                href="athiyyanurandini@gmail.com"
+                class="contact-link"
+            >
+                📧 Email
+            </a>
+
+
+            <!-- GANTI USERNAME GITHUB -->
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="contact-link"
+            >
+                💻 GitHub
+            </a>
+
+
+            <!-- GANTI LINKEDIN -->
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="contact-link"
+            >
+                🔗 LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Athiyya Nur Andini.
+
+    <br>
+
+    Pendidikan Teknologi Informasi • Universitas Negeri Surabaya
+
+</footer>
+
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="achievementModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="modalImage"
+            src=""
+            alt="Achievement"
+        >
+
+
+        <div class="modal-body">
+
+            <h2 id="modalTitle">
+                Achievement
+            </h2>
+
+            <p id="modalDescription">
+                Deskripsi achievement.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+    /* =========================
+       DARK / LIGHT MODE
+    ========================= */
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+
+            themeBtn.innerHTML = "☀️";
+
+            localStorage.setItem("theme", "dark");
+
+        } else {
+
+            themeBtn.innerHTML = "🌙";
+
+            localStorage.setItem("theme", "light");
+
+        }
+
+    });
+
+
+    /* =========================
+       LOAD THEME
+    ========================= */
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark");
+
+        themeBtn.innerHTML = "☀️";
+
+    }
+
+
+    /* =========================
+       MODAL ACHIEVEMENT
+    ========================= */
+
+    function openModal(type, title, description) {
+
+        const modal = document.getElementById("achievementModal");
+
+        const image = document.getElementById("modalImage");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalDescription =
+            document.getElementById("modalDescription");
+
+
+        if (type === "special") {
+
+            image.src = "assets/special-award.jpg";
+
+        }
+
+        if (type === "finalist") {
+
+            image.src = "assets/finalist.jpg";
+
+        }
+
+
+        modalTitle.innerHTML = title;
+
+        modalDescription.innerHTML = description;
+
+        modal.classList.add("active");
+
+    }
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeModal() {
+
+        document
+            .getElementById("achievementModal")
+            .classList.remove("active");
+
+    }
+
+
+    /* =========================
+       CLOSE CLICK OUTSIDE
+    ========================= */
+
+    document
+        .getElementById("achievementModal")
+        .addEventListener("click", function(event) {
+
+            if (event.target === this) {
+
+                closeModal();
+
+            }
+
+        });
+
+
+    /* =========================
+       ESC CLOSE MODAL
+    ========================= */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+
+            closeModal();
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>
